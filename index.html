@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebTech Form</title>
+    <style>
+        .box {
+            border: 1px solid #333;
+            padding: 10px;
+            margin-top: 10px;
+            width: 220px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>WebTech Form</h2>
+
+    <label>Enter Something:</label>
+    <input type="text" id="inputField">
+
+    
+
+    <label>Select an Option:</label>
+    <select id="dropdown">
+        <option value="Username">Username</option>
+        <option value="Text">Text</option>
+        <option value="Radio Button">Radio Button</option>
+    </select>
+
+    
+
+    <button id="addBtn">Add</button>
+
+    <div id="outputArea"></div>
+
+    <script>
+        document.getElementById("addBtn").addEventListener("click", function () {
+            const text = document.getElementById("inputField").value.trim();
+            const option = document.getElementById("dropdown").value;
+
+            if (text === "") {
+                alert("Please type something.");
+                return;
+            }
+
+            const output = document.getElementById("outputArea");
+            output.innerHTML = ""; 
+
+            const box1 = document.createElement("div");
+            box1.className = "box";
+            box1.textContent = "Selected Option: " + option;
+
+            const box2 = document.createElement("div");
+            box2.className = "box";
+            box2.textContent = "Typed Text: " + text;
+
+            const saveBtn = document.createElement("button");
+            saveBtn.textContent = "Save";
+            saveBtn.style.marginTop = "10px";
+
+            saveBtn.addEventListener("click", function () {
+                alert("Saved Successfully!");
+            });
+
+            output.appendChild(box1);
+            output.appendChild(box2);
+            output.appendChild(saveBtn);
+        });
+    </script>
+
+</body>
+</html>
